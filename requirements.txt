@@ -1,14 +1,4 @@
-aiohttp==3.7.4.post0
-async-timeout==3.0.1
-attrs==21.2.0
-chardet==4.0.0
 discord
-discord.py
-idna==3.2
-multidict==5.1.0
-python-dotenv==0.19.0
-selenium==3.141.0
-typing-extensions==3.10.0.2
-urllib3==1.26.6
-yarl==1.6.3
-python-dotenv==0.19.0
+python-dotenv
+selenium
+pillow

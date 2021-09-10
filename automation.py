@@ -11,6 +11,10 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from enum_bot import BotStatus
+from dotenv import load_dotenv
+
+
+load_dotenv()
 
 
 def get_headless_options():
@@ -20,7 +24,7 @@ def get_headless_options():
     chrome_options.add_argument('--disable-dev-shm-usage')
     chrome_options.add_argument('--user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, '
                                 'like Gecko) Chrome/93.0.4577.63 Safari/537.36"')
-    chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
+    chrome_options.binary_location = os.getenv("GOOGLE_CHROME_BIN")
     return chrome_options
 
 
@@ -29,7 +33,7 @@ async def get_schedule(user_id, email, pwd):
     chrome_options = get_headless_options()
     try:
         # Apply driver
-        driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
+        driver = webdriver.Chrome(executable_path=os.getenv("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
     except RuntimeError:
         raise RuntimeError(BotStatus.START_FAILED)
 
@@ -125,7 +129,7 @@ async def get_schedule_by_token(user_id, access_token):
     chrome_options = get_headless_options()
     try:
         # Apply driver
-        driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
+        driver = webdriver.Chrome(executable_path=os.getenv("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
     except RuntimeError:
         raise RuntimeError(BotStatus.START_FAILED)
 
@@ -163,7 +167,7 @@ async def request_wolfram_alpha(user_id, query):
     chrome_options = get_headless_options()
     try:
         # Apply driver
-        driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
+        driver = webdriver.Chrome(executable_path=os.getenv("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
     except RuntimeError:
         raise RuntimeError(BotStatus.START_FAILED)
     # 1. Navigate to wolfram alpha page
