@@ -3,19 +3,23 @@ import os
 from asyncio import TimeoutError
 from sqlite3 import IntegrityError
 
-from dotenv import load_dotenv
 import discord
 from discord.ext import commands
+from dotenv import load_dotenv
+
 import automation
 from enum_bot import BotStatus
 import db_utils as db
 import bot_utils as utils
 import timeit
 
-load_dotenv()
-TOKEN = os.environ.get('DISCORD_TOKEN')
-
 bot = commands.Bot(command_prefix='!!')
+
+
+def run():
+    load_dotenv()
+    TOKEN = os.getenv('DISCORD_TOKEN')
+    bot.run(TOKEN)
 
 
 @bot.event
@@ -153,6 +157,3 @@ async def cal_mas(ctx, *, query):
                                file=discord.File(f'{ctx.author}.png'))
     except ValueError as err:
         await ctx.channel.send('Error with code: ' + str(err) + ' ' + mention)
-
-
-bot.run(TOKEN)
