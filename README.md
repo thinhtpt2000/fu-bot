@@ -4,9 +4,7 @@
 
 DISCORD_TOKEN=[YOUR_DISCORD_TOKEN]
 
-FPT_MAIL=[YOUR_MAIL]
 
-PASS=[YOUR_PASS]
 
 
 ## Cài thư viện:
