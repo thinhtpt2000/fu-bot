@@ -1,0 +1,4 @@
+selenium
+discord
+python-dotenv
+Pillow
