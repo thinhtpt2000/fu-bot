@@ -151,4 +151,5 @@ crashlytics-build.properties
 fabric.properties
 
 chromedriver
+chromedriver.exe
 *.png
