@@ -13,7 +13,7 @@ import bot_utils as utils
 import timeit
 
 load_dotenv()
-TOKEN = os.getenv('DISCORD_TOKEN')
+TOKEN = os.environ.get('DISCORD_TOKEN')
 
 bot = commands.Bot(command_prefix='!!')
 
